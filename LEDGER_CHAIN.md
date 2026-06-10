@@ -17,13 +17,15 @@ Fingerprint (first 16 hex of SHA-256 of the `.pub` file): *recorded in `keys/REA
 
 **Decision record (ZCS-6 Phase 4, Task 2, 2026-06-10):** default resolution applied — **PROTEUS-002 takes #0004** (manifest `03e27b6284405adb3dcdae5587be7f58cdb28677a2556105f710284cb4355bb6`); CADUCEUS-004 becomes #0005 when its five Category A tightenings and practitioner review complete. Rationale: Proteus is signing-ready; Caduceus is deliberately held. Operator may override at signing time, in which case this record and the table above must be amended in the same commit as the signature.
 
+**Decision record (ZCS-6 Phase 4, Task 3, 2026-06-10, operator-confirmed):** #0004 signs with **`prev_ledger_hash = GENESIS`** — Proteus is the first signed entry on the authoritative chain. Retro-signing of the pre-history documents stays deferred and is not a Phase 5 blocker. Consequence (see Pre-history section): #0004's `prev_ledger_hash` is immutable once signed, so later retro-signing cannot splice predecessors into #0004's linkage.
+
 ## Payload corrections vs. LEDGER_CANDIDATE.md
 
 The candidate's draft payload lists `manifest_byte_count: 85318`. That figure is the hashed-file byte total of the **superseded v1.0 bundle** (9 files, verified against `archive/proteus-bench-v1.0/`) and was carried over stale. The correct v1.0.1 value is **88137** (10 hashed files, matching `MANIFEST.json` `total_bytes`). `zil_sign.py` computes this field from the bundle at signing time, so the signed payload will carry 88137. The candidate's per-file hash table is likewise the stale v1.0 list; `MANIFEST.json` (verified file-by-file against the bundle) is authoritative. The manifest *hash* `03e27b62…` is unaffected — it recomputes correctly from the v1.0.1 bundle.
 
 ## Pre-history (unsigned predecessors)
 
-The following hashes exist in prior work and may be retroactively signed and incorporated into this chain as entries #0001–#0003. If they are, this section becomes the second canonical chain segment. If they are not, they remain documented attestations without cryptographic chain authority.
+The following hashes exist in prior work. Entry numbers #0001–#0003 remain **reserved** for them, but per the operator-confirmed Task 3 decision (2026-06-10), the authoritative chain begins at #0004 with `prev_ledger_hash = GENESIS`. Because that field is immutable once #0004 is signed, retroactively signed predecessors can no longer be spliced into #0004's linkage: if signed later, they become standalone signed attestations carrying their reserved numbers (verifiable individually against the public key), not links in the forward chain.
 
 | Document | Manifest hash | Origin |
 |---|---|---|
@@ -31,7 +33,7 @@ The following hashes exist in prior work and may be retroactively signed and inc
 | VBX-ISPS substrate benchmark v1.2 (CADUCEUS-003) | *as recorded in source project* | LEDGER #0003 candidate (per project notes) |
 | Aletheia DAC substrate v0.1 | *as recorded in source project* | earlier substrate |
 
-Retroactive signing is *recommended* for chain end-to-end authority but is *not a Phase 5 blocker*. Forward-chain linkage from #0004 onward is intact regardless, because `prev_ledger_hash` is computed over the previous entry's *payload*, not its signature — and the payload exists once committed.
+Retroactive signing stays *deferred* (operator decision, 2026-06-10) and is *not a Phase 5 blocker*. Forward-chain linkage from #0004 onward is intact regardless, because `prev_ledger_hash` is computed over the previous entry's *payload*, not its signature — and #0004 anchors at `GENESIS`.
 
 ## Verification
 
