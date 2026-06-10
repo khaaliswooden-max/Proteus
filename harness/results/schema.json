@@ -1,0 +1,332 @@
+{
+  "$defs": {
+    "CalibrationBand": {
+      "additionalProperties": false,
+      "description": "Fitted by proteus-bench-v1.0.2/calibration/fit_band.py over windowed entropies.",
+      "properties": {
+        "definition": {
+          "title": "Definition",
+          "type": "string"
+        },
+        "n_windows": {
+          "title": "N Windows",
+          "type": "integer"
+        },
+        "theta_hi": {
+          "title": "Theta Hi",
+          "type": "number"
+        },
+        "theta_lo": {
+          "title": "Theta Lo",
+          "type": "number"
+        }
+      },
+      "required": [
+        "theta_lo",
+        "theta_hi",
+        "n_windows",
+        "definition"
+      ],
+      "title": "CalibrationBand",
+      "type": "object"
+    },
+    "DecodingParams": {
+      "additionalProperties": false,
+      "description": "Frozen by BENCHMARK \u00a72. The runner echoes these; it never sets them.",
+      "properties": {
+        "entropy_window": {
+          "default": 64,
+          "title": "Entropy Window",
+          "type": "integer"
+        },
+        "n_ctx": {
+          "default": 8192,
+          "title": "N Ctx",
+          "type": "integer"
+        },
+        "scaffold_max_tokens_per_turn": {
+          "default": 1024,
+          "title": "Scaffold Max Tokens Per Turn",
+          "type": "integer"
+        },
+        "temperature_canary": {
+          "default": 0.0,
+          "title": "Temperature Canary",
+          "type": "number"
+        },
+        "temperature_task": {
+          "default": 0.7,
+          "title": "Temperature Task",
+          "type": "number"
+        },
+        "top_p_task": {
+          "default": 0.95,
+          "title": "Top P Task",
+          "type": "number"
+        }
+      },
+      "title": "DecodingParams",
+      "type": "object"
+    },
+    "F0SuiteResult": {
+      "additionalProperties": false,
+      "properties": {
+        "n_episodes": {
+          "title": "N Episodes",
+          "type": "integer"
+        },
+        "n_turns": {
+          "title": "N Turns",
+          "type": "integer"
+        },
+        "per_turn": {
+          "items": {
+            "$ref": "#/$defs/TurnRecord"
+          },
+          "title": "Per Turn",
+          "type": "array"
+        },
+        "suite": {
+          "enum": [
+            "T-PA",
+            "T-PR",
+            "T-DS",
+            "T-CAN"
+          ],
+          "title": "Suite",
+          "type": "string"
+        },
+        "summary": {
+          "title": "Summary",
+          "type": "object"
+        }
+      },
+      "required": [
+        "suite",
+        "n_episodes",
+        "n_turns",
+        "summary"
+      ],
+      "title": "F0SuiteResult",
+      "type": "object"
+    },
+    "HardwareTag": {
+      "additionalProperties": false,
+      "properties": {
+        "cpu_model": {
+          "title": "Cpu Model",
+          "type": "string"
+        },
+        "gpu_model_or_none": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Gpu Model Or None"
+        },
+        "os": {
+          "title": "Os",
+          "type": "string"
+        },
+        "ram_gb": {
+          "title": "Ram Gb",
+          "type": "integer"
+        },
+        "threads_used": {
+          "title": "Threads Used",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cpu_model",
+        "ram_gb",
+        "gpu_model_or_none",
+        "os",
+        "threads_used"
+      ],
+      "title": "HardwareTag",
+      "type": "object"
+    },
+    "TurnRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "correct": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Correct"
+        },
+        "episode_id": {
+          "title": "Episode Id",
+          "type": "string"
+        },
+        "extra": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Extra"
+        },
+        "mean_entropy": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mean Entropy"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Score"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "turn": {
+          "title": "Turn",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "seed",
+        "episode_id",
+        "turn"
+      ],
+      "title": "TurnRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bundle_ledger_entry": {
+      "title": "Bundle Ledger Entry",
+      "type": "integer"
+    },
+    "bundle_manifest_hash": {
+      "title": "Bundle Manifest Hash",
+      "type": "string"
+    },
+    "calibration": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CalibrationBand"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "decoding": {
+      "$ref": "#/$defs/DecodingParams"
+    },
+    "f0_scores": {
+      "additionalProperties": {
+        "$ref": "#/$defs/F0SuiteResult"
+      },
+      "title": "F0 Scores",
+      "type": "object"
+    },
+    "hardware_tag": {
+      "$ref": "#/$defs/HardwareTag"
+    },
+    "llama_cpp_build_hash": {
+      "title": "Llama Cpp Build Hash",
+      "type": "string"
+    },
+    "model_sha256": {
+      "title": "Model Sha256",
+      "type": "string"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    },
+    "schema_version": {
+      "const": "proteus-f0-results-v1",
+      "enum": [
+        "proteus-f0-results-v1"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "seeds": {
+      "items": {
+        "type": "integer"
+      },
+      "title": "Seeds",
+      "type": "array"
+    },
+    "stub_validation": {
+      "default": false,
+      "title": "Stub Validation",
+      "type": "boolean"
+    },
+    "tokens_generated": {
+      "title": "Tokens Generated",
+      "type": "integer"
+    },
+    "ts_run_end_utc": {
+      "format": "date-time",
+      "title": "Ts Run End Utc",
+      "type": "string"
+    },
+    "ts_run_start_utc": {
+      "format": "date-time",
+      "title": "Ts Run Start Utc",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "bundle_manifest_hash",
+    "bundle_ledger_entry",
+    "llama_cpp_build_hash",
+    "model_sha256",
+    "hardware_tag",
+    "decoding",
+    "calibration",
+    "f0_scores",
+    "seeds",
+    "ts_run_start_utc",
+    "ts_run_end_utc",
+    "tokens_generated"
+  ],
+  "title": "F0Results",
+  "type": "object"
+}
