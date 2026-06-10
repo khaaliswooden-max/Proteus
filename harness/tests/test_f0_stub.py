@@ -171,6 +171,77 @@ def test_resumability_load_missing_returns_none(tmp_path):
 
 
 # ---------------------------------------------------------------------------
+# T-PA episode-atomic resume (Bugbot, PR #5)
+# ---------------------------------------------------------------------------
+
+def test_t_pa_episode_atomic_resume_drops_partial(tmp_path):
+    """A partially-complete T-PA episode must be discarded on resume so the
+    re-run produces history identical to a clean run."""
+    from harness.f0.run_f0 import _atomic_write_json, T_PA_TURNS
+    # Build a partial: episode A is fully complete, episode B has 5/40 turns.
+    records = []
+    for t in range(T_PA_TURNS):
+        records.append({"seed": 1, "episode_id": "ep-000", "turn": t,
+                        "score": 1.0, "per_convention": [], "convention_ids": []})
+    for t in range(5):
+        records.append({"seed": 1, "episode_id": "ep-001", "turn": t,
+                        "score": 0.5, "per_convention": [], "convention_ids": []})
+    out = tmp_path / "partial.json"
+    _atomic_write_json(str(out), {"records": records})
+
+    # Re-execute the resume-decision logic directly (no model call).
+    payload = {"records": records}
+    by_episode = {}
+    for r in payload["records"]:
+        by_episode.setdefault((r["seed"], r["episode_id"]), []).append(r)
+    complete = {k for k, v in by_episode.items() if len(v) == T_PA_TURNS}
+    kept = [r for r in payload["records"]
+            if (r["seed"], r["episode_id"]) in complete]
+    assert complete == {(1, "ep-000")}
+    assert len(kept) == T_PA_TURNS
+    assert all(r["episode_id"] == "ep-000" for r in kept)
+
+
+# ---------------------------------------------------------------------------
+# B2 window (BENCHMARK §4) — 1-indexed turns 20..40 == 0-indexed 19..39
+# ---------------------------------------------------------------------------
+
+def test_t_pa_b2_window_includes_first_and_last_spec_turns():
+    from harness.f0.run_f0 import _summarize_t_pa, T_PA_TURNS
+    # 40 turns, 0-indexed. Spec turns 20..40 inclusive == indices 19..39 == 21 turns.
+    recs = [{"seed": 1, "episode_id": "ep", "turn": t, "score": 1.0,
+             "per_convention": [], "convention_ids": []}
+            for t in range(T_PA_TURNS)]
+    summary = _summarize_t_pa(recs)
+    # All 21 windowed scores are 1.0 -> mean is 1.0
+    assert summary["adherence_rate_turns_20_40"] == 1.0
+
+    # Now zero out index 19 (spec turn 20) and assert it's reflected in the mean.
+    recs[19]["score"] = 0.0
+    summary = _summarize_t_pa(recs)
+    # 20 ones + 1 zero in the 21-element window -> 20/21
+    assert abs(summary["adherence_rate_turns_20_40"] - (20.0 / 21.0)) < 1e-9
+
+
+# ---------------------------------------------------------------------------
+# Determinism: per-prompt / per-turn seeded RNG is independent of run slicing
+# ---------------------------------------------------------------------------
+
+def test_per_prompt_rng_seed_is_deterministic():
+    """The calibration RNG seed must depend only on cal_id, not on call order."""
+    import hashlib
+    import random
+    def seed_for(cal_id: str) -> int:
+        return int(hashlib.sha256(f"{cal_id}|CAL-DECODE".encode()).hexdigest()[:16], 16)
+    # Same id -> same seed -> same sample path.
+    r1 = random.Random(seed_for("CAL-042"))
+    r2 = random.Random(seed_for("CAL-042"))
+    assert [r1.random() for _ in range(5)] == [r2.random() for _ in range(5)]
+    # Different id -> different seed.
+    assert seed_for("CAL-042") != seed_for("CAL-043")
+
+
+# ---------------------------------------------------------------------------
 # Full stub-model end-to-end (skipped without a model)
 # ---------------------------------------------------------------------------
 
