@@ -4,17 +4,24 @@
 Implements spec §5.1 against PROTEUS-Bench v1.0 (manifest a802d7e0…d3ff2331).
 
 Components:
-  EntropySignal       — windowed (W=64) mean pre-sampling token entropy,
-                        normalized to a percentile against a frozen
-                        calibration distribution (challenge proxy c_t).
-  ACISkill            — Adaptive Conformal Inference (Gibbs & Candès 2021)
-                        skill proxy. alpha_{t+1} = alpha_t + gamma*(alpha_target - err_t)
-                        [the corrected sign — same fix as the VBX-ISPS substrate].
-                        skill_t = 1 - normalized band width.
-  FlowBandController  — banded controller with hysteresis (m=3).
-                        Actuators: g (control-vector gain level 0-2),
-                        k (retrieval depth 0-8), s (scaffold density 0-3).
-                        Decoding params are never touched (cheat C3).
+  EntropySignal         — windowed (W=64) mean pre-sampling token entropy,
+                          normalized to a percentile against a frozen
+                          calibration distribution (challenge proxy c_t).
+  ACISkill              — Adaptive Conformal Inference (Gibbs & Candès 2021)
+                          skill proxy. alpha_{t+1} = alpha_t + gamma*(alpha_target - err_t)
+                          [the corrected sign — same fix as the VBX-ISPS substrate].
+                          skill_t = 1 - normalized band width.
+  FlowBandController    — banded controller with hysteresis (m=3).
+                          Actuators: g (control-vector gain level 0-2),
+                          k (retrieval depth 0-8), s (scaffold density 0-3).
+                          Decoding params are never touched (cheat C3).
+  graded_nonconformity  — Loop A v0.2 (F-A3): normalized edit distance in [0,1]
+                          between reference and candidate strings. Replaces
+                          binary 0/1 nonconformity so the ACI band width stays
+                          informative at the competence floor — binary scoring
+                          on a near-zero-accuracy model pins band_width=1.0,
+                          forcing skill_t=0 for the entire run and collapsing
+                          the flow gap to c_t alone.
 
 Provisional constants (flagged per Gap Analysis Protocol — empirically
 ungrounded until F0 calibration): DELTA_LO=0.05, DELTA_HI=0.25, M=3,
@@ -52,12 +59,49 @@ class EntropySignal:
         return bisect_left(self.cal, m) / len(self.cal)
 
 
+def graded_nonconformity(reference: str, candidate: str) -> float:
+    """Graded distance in [0,1] between expected answer and model output.
+
+    0.0 == exact match (post whitespace/case normalization), 1.0 == no overlap.
+    Normalized Levenshtein over the same normalization the committed T-DS
+    checker uses, so an exact match here matches `check()` returning True.
+
+    Loop A v0.2 / F-A3 remediation: replaces the binary 0/1 nonconformity used
+    in the v0.1 live run. With a near-zero-accuracy dev model, binary scoring
+    pinned the ACI empirical quantile at 1.0, holding skill_t at 0 for the
+    full run and degenerating the flow gap to c_t — the controller could not
+    distinguish "wrong format, right number" from "complete garbage." Edit
+    distance gives the band partial-credit signal in low-competence regimes.
+    """
+    def norm(s: str) -> str:
+        return " ".join(s.split()).strip().lower()
+    r, c = norm(reference), norm(candidate)
+    if r == c:
+        return 0.0
+    if not r:
+        return 1.0
+    if not c:
+        return 1.0
+    m, n = len(r), len(c)
+    prev = list(range(n + 1))
+    for i in range(1, m + 1):
+        cur = [i] + [0] * n
+        ri = r[i - 1]
+        for j in range(1, n + 1):
+            cost = 0 if ri == c[j - 1] else 1
+            cur[j] = min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + cost)
+        prev = cur
+    return min(max(prev[n] / max(m, n), 0.0), 1.0)
+
+
 class ACISkill:
     """Skill proxy via Adaptive Conformal Inference band width.
 
-    Nonconformity scores in [0,1] (1 - task quality). Coverage check uses the
-    current (1 - alpha_t) empirical quantile; alpha then adapts. Skill is
-    1 - band_width, so a narrow calibrated band reads as high skill.
+    Nonconformity scores in [0,1] — see `graded_nonconformity` for the
+    string-distance variant used by the live loop, or `1 - task_quality` for
+    the synthetic plant. Coverage check uses the current (1 - alpha_t)
+    empirical quantile; alpha then adapts. Skill is 1 - band_width, so a
+    narrow calibrated band reads as high skill.
     """
 
     def __init__(self, alpha_target: float = ALPHA_TARGET, gamma: float = GAMMA,
