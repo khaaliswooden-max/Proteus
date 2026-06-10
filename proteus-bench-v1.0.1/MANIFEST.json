@@ -1,0 +1,65 @@
+{
+ "bundle_id": "proteus-bench-v1.0.1",
+ "document_id": "PROTEUS-002",
+ "file_count": 10,
+ "files": [
+  {
+   "rel_path": "BENCHMARK_v1.0.1.md",
+   "sha256": "5ff039be024da9eb1c28448093e77b7a18b67c4274ac7a69e20a16c3d78ab986",
+   "size_bytes": 7547
+  },
+  {
+   "rel_path": "DELTA_v1.0.1.md",
+   "sha256": "45ff5c52e7969dc28702035668ba82db67f32a8ab068ebb5dbd7d9d03eb2db31",
+   "size_bytes": 2688
+  },
+  {
+   "rel_path": "HOSTILE_REVIEW_DELTA.md",
+   "sha256": "832041ee3d7a746ac46cd5f49151db35f7bb723cca741b2e694d0208a13cac9f",
+   "size_bytes": 9156
+  },
+  {
+   "rel_path": "auditor/verify_chain.py",
+   "sha256": "4e4926b165fb999ebb0779f8a1dc8a9b0a416c36d62e60985f0289ff68de5df8",
+   "size_bytes": 5113
+  },
+  {
+   "rel_path": "calibration/calibration_prompts.json",
+   "sha256": "2e69fdf0c77e15ae31d9e5e502f5623aea93a25551936ac31095d93e5c13f54b",
+   "size_bytes": 27773
+  },
+  {
+   "rel_path": "calibration/fit_band.py",
+   "sha256": "5880a0e493aa9a985b48ec3a04af136f7076d10cb56205f7e0ee13fcf0823530",
+   "size_bytes": 3195
+  },
+  {
+   "rel_path": "canary/t_can_tasks.json",
+   "sha256": "5c97256fa9cfc3506fd40e2a9d9855a53bc9b2e3bc4c465e0c671edd6947a7df",
+   "size_bytes": 18020
+  },
+  {
+   "rel_path": "generators/t_can_generate.py",
+   "sha256": "9f61293d8cd3f05826ed5a432904a0aedc3386e9a18944e2f1b33d3f913a76c0",
+   "size_bytes": 3611
+  },
+  {
+   "rel_path": "generators/t_ds_staircase.py",
+   "sha256": "7a730748ad86b85dfb7c26ee80c7ec134a519badce8bf3dae19633f2d9ebd02c",
+   "size_bytes": 2580
+  },
+  {
+   "rel_path": "generators/t_pa_pool.py",
+   "sha256": "630491c4c651fc7beb30f36bd98c943b0a791cb095b8324327aa2338c293a091",
+   "size_bytes": 8454
+  }
+ ],
+ "manifest_hash": "03e27b6284405adb3dcdae5587be7f58cdb28677a2556105f710284cb4355bb6",
+ "manifest_hash_construction": "sha256 over sorted rel_path:sha256 lines",
+ "predecessor": {
+  "bundle_id": "proteus-bench-v1.0",
+  "document_id": "PROTEUS-001",
+  "manifest_hash": "a802d7e0f2e92d0b8e67eb91fb88d335c444e63db30d89edd647ae01d3ff2331"
+ },
+ "total_bytes": 88137
+}

@@ -1,0 +1,608 @@
+{
+ "canary_seed": 271828,
+ "decoding": "temperature=0 (greedy), pinned build",
+ "isolation": "loaded only by promotion-gate runner; see auditor --check-canary-isolation",
+ "size": 100,
+ "tasks": [
+  {
+   "answer": "288",
+   "category": "arith",
+   "prompt": "Compute (30 + 6) * 8.\nAnswer with the result only.",
+   "task_id": "CAN-000"
+  },
+  {
+   "answer": "520",
+   "category": "arith",
+   "prompt": "Compute (97 + 7) * 5.\nAnswer with the result only.",
+   "task_id": "CAN-001"
+  },
+  {
+   "answer": "155",
+   "category": "arith",
+   "prompt": "Compute (34 - 3) * 5.\nAnswer with the result only.",
+   "task_id": "CAN-002"
+  },
+  {
+   "answer": "320",
+   "category": "arith",
+   "prompt": "Compute (95 - 15) * 4.\nAnswer with the result only.",
+   "task_id": "CAN-003"
+  },
+  {
+   "answer": "477",
+   "category": "arith",
+   "prompt": "Compute (48 + 5) * 9.\nAnswer with the result only.",
+   "task_id": "CAN-004"
+  },
+  {
+   "answer": "378",
+   "category": "arith",
+   "prompt": "Compute (67 - 13) * 7.\nAnswer with the result only.",
+   "task_id": "CAN-005"
+  },
+  {
+   "answer": "56",
+   "category": "arith",
+   "prompt": "Compute (36 - 8) * 2.\nAnswer with the result only.",
+   "task_id": "CAN-006"
+  },
+  {
+   "answer": "606",
+   "category": "arith",
+   "prompt": "Compute (95 + 6) * 6.\nAnswer with the result only.",
+   "task_id": "CAN-007"
+  },
+  {
+   "answer": "138",
+   "category": "arith",
+   "prompt": "Compute (42 - 19) * 6.\nAnswer with the result only.",
+   "task_id": "CAN-008"
+  },
+  {
+   "answer": "194",
+   "category": "arith",
+   "prompt": "Compute (88 + 9) * 2.\nAnswer with the result only.",
+   "task_id": "CAN-009"
+  },
+  {
+   "answer": "352",
+   "category": "arith",
+   "prompt": "Compute (54 - 10) * 8.\nAnswer with the result only.",
+   "task_id": "CAN-010"
+  },
+  {
+   "answer": "54",
+   "category": "arith",
+   "prompt": "Compute (19 - 13) * 9.\nAnswer with the result only.",
+   "task_id": "CAN-011"
+  },
+  {
+   "answer": "522",
+   "category": "arith",
+   "prompt": "Compute (76 + 11) * 6.\nAnswer with the result only.",
+   "task_id": "CAN-012"
+  },
+  {
+   "answer": "552",
+   "category": "arith",
+   "prompt": "Compute (87 + 5) * 6.\nAnswer with the result only.",
+   "task_id": "CAN-013"
+  },
+  {
+   "answer": "234",
+   "category": "arith",
+   "prompt": "Compute (83 - 5) * 3.\nAnswer with the result only.",
+   "task_id": "CAN-014"
+  },
+  {
+   "answer": "366",
+   "category": "arith",
+   "prompt": "Compute (48 + 13) * 6.\nAnswer with the result only.",
+   "task_id": "CAN-015"
+  },
+  {
+   "answer": "104",
+   "category": "arith",
+   "prompt": "Compute (58 - 6) * 2.\nAnswer with the result only.",
+   "task_id": "CAN-016"
+  },
+  {
+   "answer": "873",
+   "category": "arith",
+   "prompt": "Compute (83 + 14) * 9.\nAnswer with the result only.",
+   "task_id": "CAN-017"
+  },
+  {
+   "answer": "553",
+   "category": "arith",
+   "prompt": "Compute (73 + 6) * 7.\nAnswer with the result only.",
+   "task_id": "CAN-018"
+  },
+  {
+   "answer": "108",
+   "category": "arith",
+   "prompt": "Compute (31 + 5) * 3.\nAnswer with the result only.",
+   "task_id": "CAN-019"
+  },
+  {
+   "answer": "423",
+   "category": "arith",
+   "prompt": "Compute (29 + 18) * 9.\nAnswer with the result only.",
+   "task_id": "CAN-020"
+  },
+  {
+   "answer": "371",
+   "category": "arith",
+   "prompt": "Compute (66 - 13) * 7.\nAnswer with the result only.",
+   "task_id": "CAN-021"
+  },
+  {
+   "answer": "216",
+   "category": "arith",
+   "prompt": "Compute (16 + 8) * 9.\nAnswer with the result only.",
+   "task_id": "CAN-022"
+  },
+  {
+   "answer": "546",
+   "category": "arith",
+   "prompt": "Compute (87 + 4) * 6.\nAnswer with the result only.",
+   "task_id": "CAN-023"
+  },
+  {
+   "answer": "15",
+   "category": "arith",
+   "prompt": "Compute (16 - 11) * 3.\nAnswer with the result only.",
+   "task_id": "CAN-024"
+  },
+  {
+   "answer": "231",
+   "category": "arith",
+   "prompt": "Compute (64 + 13) * 3.\nAnswer with the result only.",
+   "task_id": "CAN-025"
+  },
+  {
+   "answer": "609",
+   "category": "arith",
+   "prompt": "Compute (79 + 8) * 7.\nAnswer with the result only.",
+   "task_id": "CAN-026"
+  },
+  {
+   "answer": "680",
+   "category": "arith",
+   "prompt": "Compute (96 - 11) * 8.\nAnswer with the result only.",
+   "task_id": "CAN-027"
+  },
+  {
+   "answer": "256",
+   "category": "arith",
+   "prompt": "Compute (43 - 11) * 8.\nAnswer with the result only.",
+   "task_id": "CAN-028"
+  },
+  {
+   "answer": "136",
+   "category": "arith",
+   "prompt": "Compute (37 - 3) * 4.\nAnswer with the result only.",
+   "task_id": "CAN-029"
+  },
+  {
+   "answer": "53",
+   "category": "seq",
+   "prompt": "What is the next number: 18, 25, 32, 39, 46, ...?\nAnswer with the result only.",
+   "task_id": "CAN-030"
+  },
+  {
+   "answer": "3645",
+   "category": "seq",
+   "prompt": "What is the next number: 5, 15, 45, 135, 405, 1215, ...?\nAnswer with the result only.",
+   "task_id": "CAN-031"
+  },
+  {
+   "answer": "972",
+   "category": "seq",
+   "prompt": "What is the next number: 12, 36, 108, 324, ...?\nAnswer with the result only.",
+   "task_id": "CAN-032"
+  },
+  {
+   "answer": "37",
+   "category": "seq",
+   "prompt": "What is the next number: 19, 22, 25, 28, 31, 34, ...?\nAnswer with the result only.",
+   "task_id": "CAN-033"
+  },
+  {
+   "answer": "832",
+   "category": "seq",
+   "prompt": "What is the next number: 13, 26, 52, 104, 208, 416, ...?\nAnswer with the result only.",
+   "task_id": "CAN-034"
+  },
+  {
+   "answer": "51",
+   "category": "seq",
+   "prompt": "What is the next number: 16, 23, 30, 37, 44, ...?\nAnswer with the result only.",
+   "task_id": "CAN-035"
+  },
+  {
+   "answer": "23",
+   "category": "seq",
+   "prompt": "What is the next number: 13, 15, 17, 19, 21, ...?\nAnswer with the result only.",
+   "task_id": "CAN-036"
+  },
+  {
+   "answer": "576",
+   "category": "seq",
+   "prompt": "What is the next number: 9, 18, 36, 72, 144, 288, ...?\nAnswer with the result only.",
+   "task_id": "CAN-037"
+  },
+  {
+   "answer": "972",
+   "category": "seq",
+   "prompt": "What is the next number: 12, 36, 108, 324, ...?\nAnswer with the result only.",
+   "task_id": "CAN-038"
+  },
+  {
+   "answer": "4374",
+   "category": "seq",
+   "prompt": "What is the next number: 2, 6, 18, 54, 162, 486, 1458, ...?\nAnswer with the result only.",
+   "task_id": "CAN-039"
+  },
+  {
+   "answer": "4374",
+   "category": "seq",
+   "prompt": "What is the next number: 2, 6, 18, 54, 162, 486, 1458, ...?\nAnswer with the result only.",
+   "task_id": "CAN-040"
+  },
+  {
+   "answer": "1620",
+   "category": "seq",
+   "prompt": "What is the next number: 20, 60, 180, 540, ...?\nAnswer with the result only.",
+   "task_id": "CAN-041"
+  },
+  {
+   "answer": "68",
+   "category": "seq",
+   "prompt": "What is the next number: 5, 14, 23, 32, 41, 50, 59, ...?\nAnswer with the result only.",
+   "task_id": "CAN-042"
+  },
+  {
+   "answer": "324",
+   "category": "seq",
+   "prompt": "What is the next number: 4, 12, 36, 108, ...?\nAnswer with the result only.",
+   "task_id": "CAN-043"
+  },
+  {
+   "answer": "42",
+   "category": "seq",
+   "prompt": "What is the next number: 14, 21, 28, 35, ...?\nAnswer with the result only.",
+   "task_id": "CAN-044"
+  },
+  {
+   "answer": "59",
+   "category": "seq",
+   "prompt": "What is the next number: 17, 23, 29, 35, 41, 47, 53, ...?\nAnswer with the result only.",
+   "task_id": "CAN-045"
+  },
+  {
+   "answer": "1053",
+   "category": "seq",
+   "prompt": "What is the next number: 13, 39, 117, 351, ...?\nAnswer with the result only.",
+   "task_id": "CAN-046"
+  },
+  {
+   "answer": "13122",
+   "category": "seq",
+   "prompt": "What is the next number: 6, 18, 54, 162, 486, 1458, 4374, ...?\nAnswer with the result only.",
+   "task_id": "CAN-047"
+  },
+  {
+   "answer": "81",
+   "category": "seq",
+   "prompt": "What is the next number: 1, 3, 9, 27, ...?\nAnswer with the result only.",
+   "task_id": "CAN-048"
+  },
+  {
+   "answer": "18",
+   "category": "seq",
+   "prompt": "What is the next number: 6, 8, 10, 12, 14, 16, ...?\nAnswer with the result only.",
+   "task_id": "CAN-049"
+  },
+  {
+   "answer": "CONFORMAL",
+   "category": "string",
+   "prompt": "Write 'conformal' in all capitals.\nAnswer with the result only.",
+   "task_id": "CAN-050"
+  },
+  {
+   "answer": "n",
+   "category": "string",
+   "prompt": "What is the third letter of 'conformal'?\nAnswer with the result only.",
+   "task_id": "CAN-051"
+  },
+  {
+   "answer": "n",
+   "category": "string",
+   "prompt": "What is the third letter of 'benchmark'?\nAnswer with the result only.",
+   "task_id": "CAN-052"
+  },
+  {
+   "answer": "n",
+   "category": "string",
+   "prompt": "What is the third letter of 'benchmark'?\nAnswer with the result only.",
+   "task_id": "CAN-053"
+  },
+  {
+   "answer": "PLASTICITY",
+   "category": "string",
+   "prompt": "Write 'plasticity' in all capitals.\nAnswer with the result only.",
+   "task_id": "CAN-054"
+  },
+  {
+   "answer": "etartsbus",
+   "category": "string",
+   "prompt": "Reverse the string 'substrate'.\nAnswer with the result only.",
+   "task_id": "CAN-055"
+  },
+  {
+   "answer": "etartsbus",
+   "category": "string",
+   "prompt": "Reverse the string 'substrate'.\nAnswer with the result only.",
+   "task_id": "CAN-056"
+  },
+  {
+   "answer": "dlofinam",
+   "category": "string",
+   "prompt": "Reverse the string 'manifold'.\nAnswer with the result only.",
+   "task_id": "CAN-057"
+  },
+  {
+   "answer": "ENTROPY",
+   "category": "string",
+   "prompt": "Write 'entropy' in all capitals.\nAnswer with the result only.",
+   "task_id": "CAN-058"
+  },
+  {
+   "answer": "MANIFOLD",
+   "category": "string",
+   "prompt": "Write 'manifold' in all capitals.\nAnswer with the result only.",
+   "task_id": "CAN-059"
+  },
+  {
+   "answer": "dlofinam",
+   "category": "string",
+   "prompt": "Reverse the string 'manifold'.\nAnswer with the result only.",
+   "task_id": "CAN-060"
+  },
+  {
+   "answer": "o",
+   "category": "string",
+   "prompt": "What is the third letter of 'provenance'?\nAnswer with the result only.",
+   "task_id": "CAN-061"
+  },
+  {
+   "answer": "regdel",
+   "category": "string",
+   "prompt": "Reverse the string 'ledger'.\nAnswer with the result only.",
+   "task_id": "CAN-062"
+  },
+  {
+   "answer": "n",
+   "category": "string",
+   "prompt": "What is the third letter of 'benchmark'?\nAnswer with the result only.",
+   "task_id": "CAN-063"
+  },
+  {
+   "answer": "1",
+   "category": "string",
+   "prompt": "How many times does the letter 't' appear in 'drift'?\nAnswer with the result only.",
+   "task_id": "CAN-064"
+  },
+  {
+   "answer": "yportne",
+   "category": "string",
+   "prompt": "Reverse the string 'entropy'.\nAnswer with the result only.",
+   "task_id": "CAN-065"
+  },
+  {
+   "answer": "n",
+   "category": "string",
+   "prompt": "What is the third letter of 'manifold'?\nAnswer with the result only.",
+   "task_id": "CAN-066"
+  },
+  {
+   "answer": "a",
+   "category": "string",
+   "prompt": "What is the third letter of 'plasticity'?\nAnswer with the result only.",
+   "task_id": "CAN-067"
+  },
+  {
+   "answer": "CONTROLLER",
+   "category": "string",
+   "prompt": "Write 'controller' in all capitals.\nAnswer with the result only.",
+   "task_id": "CAN-068"
+  },
+  {
+   "answer": "t",
+   "category": "string",
+   "prompt": "What is the third letter of 'entropy'?\nAnswer with the result only.",
+   "task_id": "CAN-069"
+  },
+  {
+   "answer": "27",
+   "category": "logic",
+   "prompt": "Of the numbers 27, 77, 12, which is the median?\nAnswer with the result only.",
+   "task_id": "CAN-070"
+  },
+  {
+   "answer": "64",
+   "category": "logic",
+   "prompt": "Of the numbers 55, 20, 64, which is the largest?\nAnswer with the result only.",
+   "task_id": "CAN-071"
+  },
+  {
+   "answer": "80",
+   "category": "logic",
+   "prompt": "Of the numbers 80, 34, 83, which is the median?\nAnswer with the result only.",
+   "task_id": "CAN-072"
+  },
+  {
+   "answer": "96",
+   "category": "logic",
+   "prompt": "Of the numbers 26, 91, 96, which is the largest?\nAnswer with the result only.",
+   "task_id": "CAN-073"
+  },
+  {
+   "answer": "48",
+   "category": "logic",
+   "prompt": "Of the numbers 48, 76, 98, which is the smallest?\nAnswer with the result only.",
+   "task_id": "CAN-074"
+  },
+  {
+   "answer": "44",
+   "category": "logic",
+   "prompt": "Of the numbers 85, 44, 27, which is the median?\nAnswer with the result only.",
+   "task_id": "CAN-075"
+  },
+  {
+   "answer": "72",
+   "category": "logic",
+   "prompt": "Of the numbers 50, 95, 72, which is the median?\nAnswer with the result only.",
+   "task_id": "CAN-076"
+  },
+  {
+   "answer": "17",
+   "category": "logic",
+   "prompt": "Of the numbers 67, 15, 17, which is the median?\nAnswer with the result only.",
+   "task_id": "CAN-077"
+  },
+  {
+   "answer": "91",
+   "category": "logic",
+   "prompt": "Of the numbers 44, 36, 91, which is the largest?\nAnswer with the result only.",
+   "task_id": "CAN-078"
+  },
+  {
+   "answer": "46",
+   "category": "logic",
+   "prompt": "Of the numbers 87, 46, 13, which is the median?\nAnswer with the result only.",
+   "task_id": "CAN-079"
+  },
+  {
+   "answer": "42",
+   "category": "logic",
+   "prompt": "Of the numbers 89, 42, 40, which is the median?\nAnswer with the result only.",
+   "task_id": "CAN-080"
+  },
+  {
+   "answer": "76",
+   "category": "logic",
+   "prompt": "Of the numbers 76, 13, 42, which is the largest?\nAnswer with the result only.",
+   "task_id": "CAN-081"
+  },
+  {
+   "answer": "56",
+   "category": "logic",
+   "prompt": "Of the numbers 56, 47, 76, which is the median?\nAnswer with the result only.",
+   "task_id": "CAN-082"
+  },
+  {
+   "answer": "63",
+   "category": "logic",
+   "prompt": "Of the numbers 17, 24, 63, which is the largest?\nAnswer with the result only.",
+   "task_id": "CAN-083"
+  },
+  {
+   "answer": "52",
+   "category": "logic",
+   "prompt": "Of the numbers 19, 59, 52, which is the median?\nAnswer with the result only.",
+   "task_id": "CAN-084"
+  },
+  {
+   "answer": "drift;entropy;manifold;plasticity;provenance;substrate",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: provenance, entropy, drift, substrate, plasticity, manifold.\nAnswer with the result only.",
+   "task_id": "CAN-085"
+  },
+  {
+   "answer": "benchmark;conformal;controller;drift;manifold;substrate",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: controller, manifold, benchmark, conformal, drift, substrate.\nAnswer with the result only.",
+   "task_id": "CAN-086"
+  },
+  {
+   "answer": "benchmark;conformal;controller;drift;plasticity;provenance",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: drift, plasticity, provenance, conformal, controller, benchmark.\nAnswer with the result only.",
+   "task_id": "CAN-087"
+  },
+  {
+   "answer": "benchmark;conformal;drift;manifold;provenance",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: provenance, conformal, drift, manifold, benchmark.\nAnswer with the result only.",
+   "task_id": "CAN-088"
+  },
+  {
+   "answer": "conformal;controller;drift;ledger;manifold",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: manifold, drift, ledger, controller, conformal.\nAnswer with the result only.",
+   "task_id": "CAN-089"
+  },
+  {
+   "answer": "drift;provenance;substrate",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: provenance, substrate, drift.\nAnswer with the result only.",
+   "task_id": "CAN-090"
+  },
+  {
+   "answer": "benchmark;conformal;ledger;manifold;plasticity;provenance",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: plasticity, ledger, manifold, provenance, benchmark, conformal.\nAnswer with the result only.",
+   "task_id": "CAN-091"
+  },
+  {
+   "answer": "benchmark;drift;entropy;ledger;plasticity",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: drift, ledger, entropy, benchmark, plasticity.\nAnswer with the result only.",
+   "task_id": "CAN-092"
+  },
+  {
+   "answer": "conformal;controller;drift;provenance;substrate",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: conformal, controller, provenance, substrate, drift.\nAnswer with the result only.",
+   "task_id": "CAN-093"
+  },
+  {
+   "answer": "benchmark;drift;entropy;ledger",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: benchmark, drift, entropy, ledger.\nAnswer with the result only.",
+   "task_id": "CAN-094"
+  },
+  {
+   "answer": "benchmark;drift;entropy;plasticity;provenance;substrate",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: entropy, plasticity, substrate, benchmark, provenance, drift.\nAnswer with the result only.",
+   "task_id": "CAN-095"
+  },
+  {
+   "answer": "controller;drift;entropy;manifold;substrate",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: manifold, drift, substrate, controller, entropy.\nAnswer with the result only.",
+   "task_id": "CAN-096"
+  },
+  {
+   "answer": "conformal;drift;plasticity",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: plasticity, conformal, drift.\nAnswer with the result only.",
+   "task_id": "CAN-097"
+  },
+  {
+   "answer": "conformal;controller;entropy;ledger;plasticity",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: controller, entropy, conformal, plasticity, ledger.\nAnswer with the result only.",
+   "task_id": "CAN-098"
+  },
+  {
+   "answer": "benchmark;entropy;manifold;provenance",
+   "category": "format",
+   "prompt": "Sort these alphabetically and join with semicolons, no spaces: provenance, manifold, entropy, benchmark.\nAnswer with the result only.",
+   "task_id": "CAN-099"
+  }
+ ]
+}

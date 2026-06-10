@@ -1,0 +1,14 @@
+* text=auto eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.cff text eol=lf
+*.txt text eol=lf
+*.sh text eol=lf
+*.ots binary
+*.gguf binary
+*.sqlite binary
+*.pem binary
+*.zip binary
+LICENSE text eol=lf
+NOTICE text eol=lf

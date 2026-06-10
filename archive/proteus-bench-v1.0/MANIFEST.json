@@ -1,0 +1,55 @@
+{
+ "bundle_id": "proteus-bench-v1.0",
+ "document_id": "PROTEUS-001",
+ "file_count": 9,
+ "files": [
+  {
+   "rel_path": "BENCHMARK_v1.0.md",
+   "sha256": "4ca655910abeee447a5b496c9c6147ea8018d523decb3542f69dd33b21496262",
+   "size_bytes": 7500
+  },
+  {
+   "rel_path": "HOSTILE_REVIEW_DELTA.md",
+   "sha256": "832041ee3d7a746ac46cd5f49151db35f7bb723cca741b2e694d0208a13cac9f",
+   "size_bytes": 9156
+  },
+  {
+   "rel_path": "auditor/verify_chain.py",
+   "sha256": "4e4926b165fb999ebb0779f8a1dc8a9b0a416c36d62e60985f0289ff68de5df8",
+   "size_bytes": 5113
+  },
+  {
+   "rel_path": "calibration/calibration_prompts.json",
+   "sha256": "2e69fdf0c77e15ae31d9e5e502f5623aea93a25551936ac31095d93e5c13f54b",
+   "size_bytes": 27773
+  },
+  {
+   "rel_path": "calibration/fit_band.py",
+   "sha256": "e4d77a1efaa1048b4d1ad7deeeb714e73db41589fc8e5628b14498c301466b4f",
+   "size_bytes": 3133
+  },
+  {
+   "rel_path": "canary/t_can_tasks.json",
+   "sha256": "5c97256fa9cfc3506fd40e2a9d9855a53bc9b2e3bc4c465e0c671edd6947a7df",
+   "size_bytes": 18020
+  },
+  {
+   "rel_path": "generators/t_can_generate.py",
+   "sha256": "9f61293d8cd3f05826ed5a432904a0aedc3386e9a18944e2f1b33d3f913a76c0",
+   "size_bytes": 3611
+  },
+  {
+   "rel_path": "generators/t_ds_staircase.py",
+   "sha256": "a8fd7a7c60ff4d3bacaf3783623708687d540dc533d8e53a8c7520effe983ee4",
+   "size_bytes": 2558
+  },
+  {
+   "rel_path": "generators/t_pa_pool.py",
+   "sha256": "630491c4c651fc7beb30f36bd98c943b0a791cb095b8324327aa2338c293a091",
+   "size_bytes": 8454
+  }
+ ],
+ "manifest_hash": "a802d7e0f2e92d0b8e67eb91fb88d335c444e63db30d89edd647ae01d3ff2331",
+ "manifest_hash_construction": "sha256 over sorted rel_path:sha256 lines",
+ "total_bytes": 85318
+}
