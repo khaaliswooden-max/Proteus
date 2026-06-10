@@ -15,6 +15,12 @@ Fingerprint (first 16 hex of SHA-256 of the `.pub` file): *recorded in `keys/REA
 
 `PROTEUS-002` and `CADUCEUS-004` (held pending five Category A tightenings and patent practitioner review) both claimed entry #0004 in preparation. **Resolution:** whichever is signed first takes #0004 on the authoritative chain; the other becomes #0005 with its `prev_ledger_hash` pointing at the first. Proteus is signing-ready *now*; Caduceus is held. The default ordering applied here is Proteus → #0004, Caduceus → #0005 when its review completes.
 
+**Decision record (ZCS-6 Phase 4, Task 2, 2026-06-10):** default resolution applied — **PROTEUS-002 takes #0004** (manifest `03e27b6284405adb3dcdae5587be7f58cdb28677a2556105f710284cb4355bb6`); CADUCEUS-004 becomes #0005 when its five Category A tightenings and practitioner review complete. Rationale: Proteus is signing-ready; Caduceus is deliberately held. Operator may override at signing time, in which case this record and the table above must be amended in the same commit as the signature.
+
+## Payload corrections vs. LEDGER_CANDIDATE.md
+
+The candidate's draft payload lists `manifest_byte_count: 85318`. That figure is the hashed-file byte total of the **superseded v1.0 bundle** (9 files, verified against `archive/proteus-bench-v1.0/`) and was carried over stale. The correct v1.0.1 value is **88137** (10 hashed files, matching `MANIFEST.json` `total_bytes`). `zil_sign.py` computes this field from the bundle at signing time, so the signed payload will carry 88137. The candidate's per-file hash table is likewise the stale v1.0 list; `MANIFEST.json` (verified file-by-file against the bundle) is authoritative. The manifest *hash* `03e27b62…` is unaffected — it recomputes correctly from the v1.0.1 bundle.
+
 ## Pre-history (unsigned predecessors)
 
 The following hashes exist in prior work and may be retroactively signed and incorporated into this chain as entries #0001–#0003. If they are, this section becomes the second canonical chain segment. If they are not, they remain documented attestations without cryptographic chain authority.
