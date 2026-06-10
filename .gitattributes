@@ -12,3 +12,4 @@
 *.zip binary
 LICENSE text eol=lf
 NOTICE text eol=lf
+*.pub binary

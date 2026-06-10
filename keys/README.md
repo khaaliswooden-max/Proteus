@@ -6,7 +6,7 @@ This directory holds the **public** verification keys used to authenticate ledge
 
 | Key identifier | File | Fingerprint (first 16 hex of SHA-256 over the .pub file) | Status |
 |---|---|---|---|
-| `visionblox-release-key-v1` | `visionblox-release-key-v1.pub` | *populate after key ceremony* | pending |
+| `visionblox-release-key-v1` | `visionblox-release-key-v1.pub` | `768834d6e7dc525e` | active |
 
 ## Recording a new key
 

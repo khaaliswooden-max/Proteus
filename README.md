@@ -90,7 +90,7 @@ The committed auditor (`proteus-bench-v1.0.2/auditor/verify_chain.py`) validates
 
 ## Status and roadmap
 
-- ZCS-6 **Phase 4** (deterministic defense): hash computed, OTS-stamped, Loop A validated end-to-end. **Signing of LEDGER #0004 is the remaining step** — see [`LEDGER_CHAIN.md`](LEDGER_CHAIN.md).
+- ZCS-6 **Phase 4** (deterministic defense): **COMPLETE** — LEDGER #0004 signed 2026-06-10 ([`LEDGER_0004.json`](LEDGER_0004.json), verifies against [`keys/visionblox-release-key-v1.pub`](keys/visionblox-release-key-v1.pub)); Loop A validated end-to-end. Remaining housekeeping: OTS stamp over the v1.0.2 bundle hash — see [`LEDGER_CHAIN.md`](LEDGER_CHAIN.md).
 - ZCS-6 **Phase 5** (solution build): F0 baseline on Mistral-7B → full Loop A v0.2 with graded nonconformity (F-A3) → Loop C consolidation. See [`ROADMAP.md`](ROADMAP.md).
 
 ## Authorship and provenance
