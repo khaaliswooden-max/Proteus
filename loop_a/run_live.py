@@ -20,20 +20,25 @@ Actuators in live mode:
 import datetime
 import json
 import math
+import os
+import pathlib
 import statistics
 import subprocess
 import sys
 import time
 
-sys.path.insert(0, "/home/claude/proteus/loop_a")
-sys.path.insert(0, "/home/claude/proteus-bench-v1.0.1/generators")
+REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
+BENCH = REPO_ROOT / "proteus-bench-v1.0.2"
+sys.path.insert(0, str(REPO_ROOT / "loop_a"))
+sys.path.insert(0, str(BENCH / "generators"))
 from loop_a import EntropySignal, ACISkill, FlowBandController  # noqa: E402
 from chain import StateChain, generate_test_keypair  # noqa: E402
 import t_ds_staircase as tds  # committed generator + checker  # noqa: E402
 
 from llama_cpp import Llama  # noqa: E402
 
-MODEL = "/home/claude/qwen2.5-0.5b-instruct-q4_k_m.gguf"
+MODEL = os.environ.get("PROTEUS_DEV_MODEL",
+                       str(REPO_ROOT / "models" / "qwen2.5-0.5b-instruct-q4_k_m.gguf"))
 N_CAL_PROMPTS = 12       # calibration subset (time-boxed dev run)
 N_TURNS = 16             # live turns over the staircase
 MAX_GEN = 48
@@ -153,7 +158,7 @@ def main():
           f"chain overhead median {lat['median_ms']:.2f} ms, total {time.time()-t0:.0f}s", flush=True)
 
     audit = subprocess.run(
-        ["python3", "/home/claude/proteus-bench-v1.0.1/auditor/verify_chain.py",
+        ["python3", str(BENCH / "auditor" / "verify_chain.py"),
          "--db", "/tmp/ep_live.sqlite", "--pubkey", "/tmp/live_test.pub"],
         capture_output=True, text=True)
     print("COMMITTED-AUDITOR EXIT:", audit.returncode)

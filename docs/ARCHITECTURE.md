@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes Proteus's three-loop architecture from first principles. The committable specification with thresholds is `proteus-bench-v1.0.1/BENCHMARK_v1.0.1.md`; this document is the technical reference.
+This document describes Proteus's three-loop architecture from first principles. The committable specification with thresholds is `proteus-bench-v1.0.2/BENCHMARK_v1.0.2.md`; this document is the technical reference.
 
 ## Problem statement
 
@@ -86,7 +86,7 @@ The KV cache exists; it just doesn't get to be authoritative.
 
 ### Independent auditability
 
-`proteus-bench-v1.0.1/auditor/verify_chain.py` is the bundle-side auditor. It recomputes every hash, verifies every signature against the published public key, checks linkage end-to-end, enforces the C5 non-degeneracy clause (adaptation events must produce non-empty state diffs ≥60% of the time), and optionally checks canary isolation (F10). It is committed *in the benchmark bundle*, not in solution code, by design: a solution-side auditor is structurally untrustworthy.
+`proteus-bench-v1.0.2/auditor/verify_chain.py` is the bundle-side auditor. It recomputes every hash, verifies every signature against the published public key, checks linkage end-to-end, enforces the C5 non-degeneracy clause (adaptation events must produce non-empty state diffs ≥60% of the time), and optionally checks canary isolation (F10). It is committed *in the benchmark bundle*, not in solution code, by design: a solution-side auditor is structurally untrustworthy.
 
 ## Loop C — consolidation (drift as governed substrate)
 
@@ -116,7 +116,7 @@ Loop C is where Proteus's IP-defensible novelty lives: the *integration* of conf
 
 ## Sister documents
 
-- `proteus-bench-v1.0.1/BENCHMARK_v1.0.1.md` — the committable contract with thresholds.
-- `proteus-bench-v1.0.1/HOSTILE_REVIEW_DELTA.md` — what the architecture survives.
+- `proteus-bench-v1.0.2/BENCHMARK_v1.0.2.md` — the committable contract with thresholds.
+- `proteus-bench-v1.0.2/HOSTILE_REVIEW_DELTA.md` — what the architecture survives.
 - [`SIXTH_ROAD.md`](SIXTH_ROAD.md) — what this architecture is in the broader framework.
 - [`METHODOLOGY.md`](METHODOLOGY.md) — the procedural discipline this work follows.

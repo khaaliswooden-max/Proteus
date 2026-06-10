@@ -18,12 +18,15 @@ Pairing: identical RNG seeds for ON and OFF runs -> identical noise draws.
 """
 import datetime
 import json
+import pathlib
 import random
 import statistics
 import subprocess
 import sys
 
-sys.path.insert(0, "/home/claude/proteus/loop_a")
+REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
+BENCH = REPO_ROOT / "proteus-bench-v1.0.2"
+sys.path.insert(0, str(REPO_ROOT / "loop_a"))
 from loop_a import EntropySignal, ACISkill, FlowBandController, WINDOW  # noqa: E402
 from chain import StateChain, generate_test_keypair  # noqa: E402
 
@@ -113,9 +116,9 @@ def main():
     }
     print(json.dumps(summary, indent=1))
 
-    # Run the COMMITTED auditor (frozen bundle) against a controlled-run chain
+    # Run the COMMITTED auditor (current frozen bundle) against a controlled-run chain
     audit = subprocess.run(
-        ["python3", "/home/claude/proteus-bench-v1.0/auditor/verify_chain.py",
+        ["python3", str(BENCH / "auditor" / "verify_chain.py"),
          "--db", "/tmp/ep_on_8.sqlite", "--pubkey", "/tmp/loop_a_test.pub"],
         capture_output=True, text=True)
     print("COMMITTED-AUDITOR EXIT:", audit.returncode)

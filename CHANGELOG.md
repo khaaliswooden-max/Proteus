@@ -4,6 +4,13 @@ All notable changes to Proteus are documented here. Format follows [Keep a Chang
 
 ## [Unreleased]
 
+### Added
+- **`proteus-bench-v1.0.2/`** (PROTEUS-003) superseding v1.0.1. Manifest hash `3d14ac4b77deede20daae1b319bb5c370b71db83c58c693587651d9cf4856e58`. OTS stamp pending operator action (`ots stamp proteus-bench-v1.0.2/BUNDLE_HASH.txt`). v1.0.1 moved to `archive/` with its OTS stamp intact.
+
+### Fixed
+- **F-B2** — v1.0.1 reworded the structured calibration prompts in `fit_band.py` but carried `calibration_prompts.json` forward byte-identical to v1.0, so `--emit-prompts` no longer reproduced the committed artifact. Versioned-update repair: v1.0.1 → v1.0.2, artifact regenerated from the committed generator, zero answers affected (calibration is entropy-only). Found by automated hostile review on first public PR. See `proteus-bench-v1.0.2/DELTA_v1.0.2.md`.
+- **Loop A portability** — `run_live.py` and `run_synthetic.py` pinned `sys.path`, the dev model, and the auditor to absolute paths from the original dev session. Now repo-relative (model overridable via `PROTEUS_DEV_MODEL`), and both runners invoke the auditor from the current frozen bundle.
+
 ### Phase 5 work in progress
 - F-A3 — graded nonconformity for ACI skill proxy (planned).
 - F0 baseline on Mistral-7B-Instruct-v0.3 (planned; pins llama.cpp build hash).

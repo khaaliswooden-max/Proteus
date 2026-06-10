@@ -14,7 +14,7 @@ The benchmark contract is fixed; the next work is making a system that passes it
 
 - **F-A3 — Graded nonconformity for ACI skill proxy.** Replace binary success/failure scoring with a graded distance metric so the skill estimate stays informative below the competence floor. Without this, low-capability models saturate the proxy at zero skill, degenerating the flow gap to challenge alone.
 - **F0 baseline on Mistral-7B-Instruct-v0.3 Q4_K_M.** First measured run. Pins the llama.cpp build hash that B1b (generation replay) and the calibration band bind to. The build hash is the *unique* externality between bundle commit and protocol run; once recorded it is immutable.
-- **Calibration band fit.** Run `proteus-bench-v1.0.1/calibration/fit_band.py` on the F0 entropy log; record `[θ_lo, θ_hi]` alongside the build hash in the results artifact.
+- **Calibration band fit.** Run `proteus-bench-v1.0.2/calibration/fit_band.py` on the F0 entropy log; record `[θ_lo, θ_hi]` alongside the build hash in the results artifact.
 
 ### v0.3 (Loop B robustness)
 

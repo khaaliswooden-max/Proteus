@@ -15,7 +15,7 @@ Thank you for considering a contribution. This project is unusual in that its di
 Open a PR. Squash to a single commit. No issue required.
 
 ### Bug reports
-Open an issue using the template. For bugs in the **solution** (Loop A/B code, dev harness), include: model, llama.cpp build hash, seed, exact command, observed output, expected output. For bugs in the **benchmark** (anything under `proteus-bench-v1.0.1/`), see §1 above — these are extraordinary events; we treat them like benchmark v1.0 → v1.0.1, which was a benchmark defect found at first contact with a real model.
+Open an issue using the template. For bugs in the **solution** (Loop A/B code, dev harness), include: model, llama.cpp build hash, seed, exact command, observed output, expected output. For bugs in the **benchmark** (anything under `proteus-bench-v1.0.2/`), see §1 above — these are extraordinary events; we treat them like benchmark v1.0 → v1.0.1, which was a benchmark defect found at first contact with a real model.
 
 ### Feature proposals
 Open an issue first; do not start coding. The bar:

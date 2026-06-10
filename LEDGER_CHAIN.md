@@ -9,7 +9,9 @@ Fingerprint (first 16 hex of SHA-256 of the `.pub` file): *recorded in `keys/REA
 
 | # | Document ID | Title | Manifest hash (first 16) | Date | Status |
 |---|---|---|---|---|---|
-| 0004 | PROTEUS-002 | proteus-bench v1.0.1 — Online State Adaptation Benchmark | `03e27b6284405adb` | *pending signature* | **awaiting signing ceremony** |
+| 0004 | PROTEUS-003 | proteus-bench v1.0.2 — Online State Adaptation Benchmark | `3d14ac4b77deede2` | *pending signature* | **awaiting OTS stamp + signing ceremony** |
+
+Superseded candidates (never signed): PROTEUS-002 / v1.0.1 (`03e27b6284405adb`, OTS-stamped, superseded per `proteus-bench-v1.0.2/DELTA_v1.0.2.md`); PROTEUS-001 / v1.0 (`a802d7e0f2e92d0b`, OTS-stamped, superseded per `DELTA_v1.0.1.md`). Both remain under `archive/`.
 
 ## #0004/#0005 collision note
 
@@ -37,7 +39,7 @@ python3 zil_sign.py verify --entry LEDGER_0004.json   # expects: VALID
 python3 - <<'PY'
 import hashlib
 from pathlib import Path
-root = Path("proteus-bench-v1.0.1")
+root = Path("proteus-bench-v1.0.2")
 skip = {"MANIFEST.json","BUNDLE_HASH.txt","BUNDLE_HASH.txt.ots","LEDGER_CANDIDATE.md"}
 files = [p for p in sorted(root.rglob("*"))
          if p.is_file() and p.name not in skip and "__pycache__" not in str(p)]
@@ -46,9 +48,10 @@ print(hashlib.sha256("\n".join(
     for p in files).encode()).hexdigest())
 PY
 
-# Verify the OpenTimestamps proof (after ~24h post-stamp for Bitcoin confirmation):
-ots upgrade proteus-bench-v1.0.1/BUNDLE_HASH.txt.ots
-ots verify  proteus-bench-v1.0.1/BUNDLE_HASH.txt.ots
+# Verify the OpenTimestamps proof (v1.0.2 stamp pending operator action; superseded
+# v1.0.1 stamp remains verifiable, after ~24h post-stamp for Bitcoin confirmation):
+ots upgrade archive/proteus-bench-v1.0.1/BUNDLE_HASH.txt.ots
+ots verify  archive/proteus-bench-v1.0.1/BUNDLE_HASH.txt.ots
 ```
 
 Three independent confirmations: cryptographic signature (who), bundle hash (what), OpenTimestamps anchor (when). All three must hold for a chain entry to be authoritative.

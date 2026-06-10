@@ -18,7 +18,7 @@ Anyone who opens an accepted PR. Contributors do not hold signing authority over
 
 ### External reviewers
 
-Engaged ad-hoc for hostile review of pre-commit benchmark bundles (see [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) §3). The current pre-commit hostile review (recorded in `proteus-bench-v1.0.1/HOSTILE_REVIEW_DELTA.md`) was performed in-session prior to publication; subsequent benchmark versions will seek at least one outside reviewer prior to commit.
+Engaged ad-hoc for hostile review of pre-commit benchmark bundles (see [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) §3). The current pre-commit hostile review (recorded in `proteus-bench-v1.0.2/HOSTILE_REVIEW_DELTA.md`) was performed in-session prior to publication; subsequent benchmark versions will seek at least one outside reviewer prior to commit.
 
 ## Decision-making
 
