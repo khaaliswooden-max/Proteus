@@ -37,8 +37,9 @@ import t_ds_staircase as tds  # committed generator + checker  # noqa: E402
 
 from llama_cpp import Llama  # noqa: E402
 
-MODEL = os.environ.get("PROTEUS_DEV_MODEL",
-                       str(REPO_ROOT / "models" / "qwen2.5-0.5b-instruct-q4_k_m.gguf"))
+# relative PROTEUS_DEV_MODEL overrides resolve against the repo root, not the cwd
+MODEL = str(REPO_ROOT / pathlib.Path(
+    os.environ.get("PROTEUS_DEV_MODEL", "models/qwen2.5-0.5b-instruct-q4_k_m.gguf")))
 N_CAL_PROMPTS = 12       # calibration subset (time-boxed dev run)
 N_TURNS = 16             # live turns over the staircase
 MAX_GEN = 48
