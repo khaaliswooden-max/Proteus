@@ -348,10 +348,14 @@ def f0_calibration_pass(
     mh.open()
     try:
         import random as _r
-        rng = _r.Random(0)
         for p in prompts:
             if p["cal_id"] in done_ids:
                 continue
+            # Per-prompt RNG seeded from cal_id so resume-vs-clean produce identical
+            # sample paths regardless of how the run was sliced (Bugbot, PR #5).
+            rng = _r.Random(int(hashlib.sha256(
+                f"{p['cal_id']}|CAL-DECODE".encode()
+            ).hexdigest()[:16], 16))
             _, ents = generate_with_entropy(
                 mh, p["prompt"], max_tokens=MAX_GEN_CAL,
                 decoding=DECODING_TASK, rng=rng,
@@ -429,12 +433,26 @@ def f0_baseline_t_pa(
     n_threads: int = 8,
     stub_validation: bool = False,
 ) -> dict:
-    """Per-turn adherence scores under F0 (no Proteus loops)."""
+    """Per-turn adherence scores under F0 (no Proteus loops).
+
+    Resumability is **episode-atomic**: T-PA episodes are stateful dialogues, so
+    a partially-complete episode is dropped and re-run from scratch. An episode
+    counts as complete only when all `T_PA_TURNS` turn-records are present.
+    (Bugbot, PR #5: turn-level resume would feed placeholder history into later
+    prompts and break determinism vs. a clean run.)
+    """
     payload = _load_partial(out_path) or _envelope(
         "T-PA", model_path, model_sha256,
         stub_validation=stub_validation, seeds=list(seeds),
     )
-    done = {(r["seed"], r["episode_id"], r["turn"]) for r in payload["records"]}
+
+    # Episode-atomic resume: keep records only for fully-complete episodes.
+    by_episode: dict[tuple[int, str], list[dict]] = {}
+    for r in payload["records"]:
+        by_episode.setdefault((r["seed"], r["episode_id"]), []).append(r)
+    complete_episodes = {key for key, recs in by_episode.items() if len(recs) == T_PA_TURNS}
+    payload["records"] = [r for r in payload["records"]
+                          if (r["seed"], r["episode_id"]) in complete_episodes]
 
     pool = t_pa_pool.build_pool()
 
@@ -445,6 +463,8 @@ def f0_baseline_t_pa(
         for seed in seeds:
             for ep in range(episodes):
                 episode_id = f"ep-{ep:03d}"
+                if (seed, episode_id) in complete_episodes:
+                    continue
                 conventions = t_pa_pool.draw_episode(pool, seed, episode_id, n=5)
                 tasks = _t_pa_episode_tasks(seed, episode_id)
                 history: list[dict] = []
@@ -452,9 +472,6 @@ def f0_baseline_t_pa(
                     f"{seed}|{episode_id}|TPA-DECODE".encode()
                 ).hexdigest()[:16], 16))
                 for turn, user_text in enumerate(tasks):
-                    if (seed, episode_id, turn) in done:
-                        history.append({"user": user_text, "assistant": "(skipped, prior run)"})
-                        continue
                     prompt = _t_pa_prompt(history, conventions, user_text, turn=turn + 1)
                     text, _ents = generate_with_entropy(
                         mh, prompt, max_tokens=MAX_GEN_TASK,
@@ -486,7 +503,9 @@ def _summarize_t_pa(records: list[dict]) -> dict:
     if not records:
         return {"adherence_rate": 0.0, "adherence_rate_turns_20_40": 0.0, "n_turns": 0}
     overall = statistics.mean(r["score"] for r in records)
-    window = [r["score"] for r in records if 20 <= r["turn"] < 40]
+    # BENCHMARK §3/§4 are 1-indexed ("introduced turns 1–5", "turns 20–40").
+    # Stored `turn` is 0-indexed, so 1-indexed turns 20..40 inclusive = indices 19..39.
+    window = [r["score"] for r in records if 19 <= r["turn"] < 40]
     return {
         "adherence_rate": overall,
         "adherence_rate_turns_20_40": statistics.mean(window) if window else 0.0,
@@ -525,12 +544,14 @@ def f0_baseline_t_ds(
             for ep in range(episodes):
                 episode_id = f"ep-{ep:03d}"
                 tasks = t_ds.generate_episode(seed, episode_id)
-                rng = _r.Random(int(hashlib.sha256(
-                    f"{seed}|{episode_id}|TDS-DECODE".encode()
-                ).hexdigest()[:16], 16))
                 for task in tasks:
                     if (seed, episode_id, task["turn"]) in done:
                         continue
+                    # Per-turn RNG seeded from (seed, episode_id, turn) so resume
+                    # produces an identical sample path to a clean run (Bugbot, PR #5).
+                    rng = _r.Random(int(hashlib.sha256(
+                        f"{seed}|{episode_id}|{task['turn']}|TDS-DECODE".encode()
+                    ).hexdigest()[:16], 16))
                     prompt = _t_ds_prompt(task)
                     text, ents = generate_with_entropy(
                         mh, prompt, max_tokens=MAX_GEN_TASK,
