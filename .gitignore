@@ -1,0 +1,46 @@
+# SECRETS — never commit these. Removing or weakening these lines is a security incident.
+*.pem
+*.key
+*private*
+~/zil-keys/
+zil-keys/
+.env
+.env.*
+secrets/
+
+# Models (large binaries, not version-controlled)
+*.gguf
+*.bin
+*.safetensors
+*.onnx
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+
+# Local state from runs (real chains belong in LEDGER_*.json, not these)
+*.sqlite
+*.sqlite3
+*.db
+/tmp/
+ep_*.sqlite
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Test artifacts that should never reach the repo
+test_*.pub
+test_*.pem
