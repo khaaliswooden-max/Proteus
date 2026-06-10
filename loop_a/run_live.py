@@ -31,7 +31,7 @@ REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 BENCH = REPO_ROOT / "proteus-bench-v1.0.2"
 sys.path.insert(0, str(REPO_ROOT / "loop_a"))
 sys.path.insert(0, str(BENCH / "generators"))
-from loop_a import EntropySignal, ACISkill, FlowBandController  # noqa: E402
+from loop_a import EntropySignal, ACISkill, FlowBandController, graded_nonconformity  # noqa: E402
 from chain import StateChain, generate_test_keypair  # noqa: E402
 import t_ds_staircase as tds  # committed generator + checker  # noqa: E402
 
@@ -133,19 +133,25 @@ def main():
         for e in ents:
             sig.push(e)
         cand = [l for l in text.strip().splitlines() if l.strip()]
-        ok = tds.check(task, cand[0] if cand else "")
+        first = cand[0] if cand else ""
+        ok = tds.check(task, first)
         if ok:
             solved.append(task)
         c_t = sig.challenge()
         skill_t = aci.skill()
         step = ctl.step(c_t, skill_t)
-        aci.update(0.0 if ok else 1.0)
+        # F-A3: graded distance, not binary. Exact match (ok==True) still
+        # yields 0.0 by construction of graded_nonconformity, so successful
+        # turns score identically to the v0.1 binary path.
+        nc = graded_nonconformity(task["answer"], first)
+        aci.update(nc)
         if step["adaptation_event"]:
             state["actuators"] = {"k": ctl.k, "g": ctl.g, "s": ctl.s}
         ts = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
         chain.append(state, {"c_t": round(c_t, 4), "skill_t": round(skill_t, 4),
                              "gap": round(step["gap"], 4), "k": ctl.k, "g": ctl.g,
-                             "s": ctl.s, "correct": ok, "level": task["level"],
+                             "s": ctl.s, "correct": ok, "nonconformity": round(nc, 4),
+                             "level": task["level"],
                              "mean_H": round(statistics.mean(ents), 3),
                              "adaptation_event": step["adaptation_event"]}, ts)
         log.append({"turn": task["turn"], "level": task["level"], "correct": ok,
