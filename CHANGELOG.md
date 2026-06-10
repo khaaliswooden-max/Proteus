@@ -4,10 +4,14 @@ All notable changes to Proteus are documented here. Format follows [Keep a Chang
 
 ## [Unreleased]
 
+### Provenance
+- **LEDGER #0004 SIGNED** (2026-06-10) — PROTEUS-003 / proteus-bench v1.0.2, manifest `3d14ac4b…f4856e58`, payload hash `0217ae85687ea7620ef4ead6fb5c42e02e787c3aff5b5a3d4523ccd864793be9`, `prev_ledger_hash` GENESIS. Entry at `LEDGER_0004.json`; verifies against `keys/visionblox-release-key-v1.pub` (fingerprint `768834d6e7dc525e`). #0004/#0005 collision resolved: Proteus holds #0004. OTS stamp over the v1.0.2 bundle hash remains a pending operator action.
+
 ### Added
 - **`proteus-bench-v1.0.2/`** (PROTEUS-003) superseding v1.0.1. Manifest hash `3d14ac4b77deede20daae1b319bb5c370b71db83c58c693587651d9cf4856e58`. OTS stamp pending operator action (`ots stamp proteus-bench-v1.0.2/BUNDLE_HASH.txt`). v1.0.1 moved to `archive/` with its OTS stamp intact.
 
 ### Fixed
+- **zil_sign.py v0.2** — restored to the tree (dropped during the repo restructure) with two cross-platform bugs fixed, both caught at first hostile use during the LEDGER #0004 signing ceremony: **F-S1** (Windows backslash path separators in manifest lines) and **F-S2** (case-folded `Path` sort order on Windows). Either made a Windows hash recomputation diverge from the committed hash; the sign-time mismatch gate blocked signing as designed, so no integrity impact. `verify` now also finds the public key under `keys/`. See `DELTA_zil_sign_v0.2.md`.
 - **F-B2** — v1.0.1 reworded the structured calibration prompts in `fit_band.py` but carried `calibration_prompts.json` forward byte-identical to v1.0, so `--emit-prompts` no longer reproduced the committed artifact. Versioned-update repair: v1.0.1 → v1.0.2, artifact regenerated from the committed generator, zero answers affected (calibration is entropy-only). Found by automated hostile review on first public PR. See `proteus-bench-v1.0.2/DELTA_v1.0.2.md`.
 - **Loop A portability** — `run_live.py` and `run_synthetic.py` pinned `sys.path`, the dev model, and the auditor to absolute paths from the original dev session. Now repo-relative (model overridable via `PROTEUS_DEV_MODEL`), and both runners invoke the auditor from the current frozen bundle.
 

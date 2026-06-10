@@ -3,19 +3,23 @@
 This file is the human-readable index of the cryptographic ledger. Each row corresponds to a `LEDGER_NNNN.json` file in the repository root. Authoritative truth is the JSON entries and their Ed25519 signatures, not this file — if they disagree, **trust the cryptography**.
 
 Verification key: [`keys/visionblox-release-key-v1.pub`](keys/visionblox-release-key-v1.pub).
-Fingerprint (first 16 hex of SHA-256 of the `.pub` file): *recorded in `keys/README.md` after key ceremony.*
+Fingerprint (first 16 hex of SHA-256 of the `.pub` file): `768834d6e7dc525e`.
 
 ## Chain
 
 | # | Document ID | Title | Manifest hash (first 16) | Date | Status |
 |---|---|---|---|---|---|
-| 0004 | PROTEUS-003 | proteus-bench v1.0.2 — Online State Adaptation Benchmark | `3d14ac4b77deede2` | *pending signature* | **awaiting OTS stamp + signing ceremony** |
+| 0004 | PROTEUS-003 | proteus-bench v1.0.2 — Online State Adaptation Benchmark | `3d14ac4b77deede2` | 2026-06-10 | **signed** ([`LEDGER_0004.json`](LEDGER_0004.json)) |
+
+LEDGER #0004 payload hash (full, becomes `prev_ledger_hash` for #0005):
+`0217ae85687ea7620ef4ead6fb5c42e02e787c3aff5b5a3d4523ccd864793be9`.
+`prev_ledger_hash` of #0004 is `GENESIS` — pre-history entries #0001–#0003 remain unsigned (see below). The OTS stamp over `proteus-bench-v1.0.2/BUNDLE_HASH.txt` remains a pending operator action; the signature's "when" is currently anchored by the v1.0/v1.0.1 stamps plus the signed `commit_date_tai`.
 
 Superseded candidates (never signed): PROTEUS-002 / v1.0.1 (`03e27b6284405adb`, OTS-stamped, superseded per `proteus-bench-v1.0.2/DELTA_v1.0.2.md`); PROTEUS-001 / v1.0 (`a802d7e0f2e92d0b`, OTS-stamped, superseded per `DELTA_v1.0.1.md`). Both remain under `archive/`.
 
 ## #0004/#0005 collision note
 
-`PROTEUS-002` and `CADUCEUS-004` (held pending five Category A tightenings and patent practitioner review) both claimed entry #0004 in preparation. **Resolution:** whichever is signed first takes #0004 on the authoritative chain; the other becomes #0005 with its `prev_ledger_hash` pointing at the first. Proteus is signing-ready *now*; Caduceus is held. The default ordering applied here is Proteus → #0004, Caduceus → #0005 when its review completes.
+`PROTEUS-002/003` and `CADUCEUS-004` (held pending five Category A tightenings and patent practitioner review) both claimed entry #0004 in preparation. **Resolved 2026-06-10:** Proteus (PROTEUS-003) signed first and holds #0004 on the authoritative chain. Caduceus becomes #0005 when its review completes, with `prev_ledger_hash` = `0217ae85…793be9` (the #0004 payload hash above).
 
 ## Pre-history (unsigned predecessors)
 

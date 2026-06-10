@@ -1,0 +1,21 @@
+{
+ "payload": {
+  "author": "A. Khaalis Wooden, Sr.",
+  "commit_date_tai": "2026-06-10T12:50:22Z",
+  "commit_methodology": "ZCS-6 Phase 4",
+  "document_id": "PROTEUS-003",
+  "document_revision": "A",
+  "document_title": "PROTEUS-Bench v1.0.2 - Online State Adaptation Benchmark (Sixth Road Candidate)",
+  "ledger_entry_number": 4,
+  "manifest_byte_count": 97428,
+  "manifest_hash": "3d14ac4b77deede20daae1b319bb5c370b71db83c58c693587651d9cf4856e58",
+  "manifest_hash_algorithm": "SHA-256",
+  "prev_ledger_hash": "GENESIS",
+  "prev_ledger_number": 3,
+  "schema_version": "aletheia-ledger-entry-v1",
+  "signing_algorithm": "Ed25519",
+  "signing_key_identifier": "visionblox-release-key-v1"
+ },
+ "payload_sha256": "0217ae85687ea7620ef4ead6fb5c42e02e787c3aff5b5a3d4523ccd864793be9",
+ "signature_ed25519_hex": "9f11c33cd80d38b100a5c45081c60548ac654ee386cca873dc425620e7704c91d925cfffc314ef316fe908c8cd01f44b93a3f9976db8f130edaf12d0be19270e"
+}
