@@ -1,0 +1,1007 @@
+{
+ "cal_seed": 161803,
+ "n": 200,
+ "prompts": [
+  {
+   "cal_id": "CAL-000",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 + 6 - 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-001",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 - 6 * 5 + 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-002",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 + 6 - 3 - 5 + 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-003",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 9 - 2 + 3 - 7 + 9 + 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-004",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 8 + 7 * 3 - 5 + 9 - 4 * 6. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-005",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 + 3 + 6 - 6 + 5 + 3 * 8 * 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-006",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 + 6 + 3 + 7 + 9 - 2 + 3 * 7 * 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-007",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 * 8 * 4 * 4 + 7 * 7 + 7 - 5 - 2 - 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-008",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 * 9 + 8 + 6 + 5 + 2 + 5 + 9 - 6 + 8 * 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-009",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 - 6 - 6 - 9 + 9 + 9 + 9 + 4 + 6 - 6 * 9 + 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-010",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 * 3 * 8 - 8 - 4 - 4 - 8 + 7 - 7 * 7 - 9 * 6 * 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-011",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 - 5 * 9 - 8 - 5 * 6 * 6 + 6 * 7 - 4 - 8 - 7 * 4 + 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-012",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 8 - 6 - 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-013",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 * 7 + 6 + 6. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-014",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 - 9 - 3 + 2 * 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-015",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 - 5 + 4 - 2 + 3 - 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-016",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 - 6 + 6 - 8 * 7 + 9 + 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-017",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 * 7 + 5 + 3 + 8 - 7 * 5 - 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-018",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 9 + 9 - 9 * 6 + 4 * 7 + 9 - 3 + 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-019",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 + 4 + 5 + 2 - 4 * 6 + 7 * 2 - 8 * 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-020",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 * 4 + 4 + 3 + 4 - 3 - 7 * 9 + 5 + 8 - 6. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-021",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 * 9 - 6 - 8 - 4 * 6 + 5 + 3 + 2 - 3 - 4 * 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-022",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 - 3 + 5 - 6 * 7 - 8 * 6 + 6 + 9 + 8 * 5 - 6 + 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-023",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 - 2 + 6 * 2 + 3 * 3 - 3 - 5 + 2 - 2 - 9 - 9 + 8 - 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-024",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 9 * 2 - 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-025",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 - 7 * 2 - 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-026",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 + 9 * 9 * 5 * 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-027",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 9 - 2 + 3 + 7 - 4 + 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-028",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 - 5 + 4 - 2 * 3 + 6 - 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-029",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 * 8 * 4 * 7 - 5 - 5 + 3 - 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-030",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 + 5 * 7 * 8 * 6 * 5 * 8 - 6 + 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-031",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 * 5 - 3 + 8 + 6 - 8 + 8 * 6 - 2 + 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-032",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 + 9 + 9 + 5 - 2 + 2 + 4 - 4 * 8 + 2 - 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-033",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 - 4 * 6 * 5 * 7 + 5 - 3 + 2 + 8 - 6 - 5 * 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-034",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 8 - 7 - 7 * 4 - 9 - 9 - 7 + 7 - 9 * 4 * 2 - 4 - 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-035",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 - 7 * 4 * 2 + 2 * 7 + 2 * 6 - 2 + 8 - 7 + 2 - 9 + 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-036",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 - 2 - 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-037",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 - 3 + 8 * 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-038",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 * 4 - 9 * 3 + 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-039",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 - 8 * 5 - 4 + 4 - 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-040",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 8 * 3 * 7 * 7 + 4 + 7 * 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-041",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 8 * 2 - 8 - 5 - 2 - 7 * 8 - 6. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-042",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 * 8 * 7 - 9 * 2 + 8 + 9 * 6 * 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-043",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 * 9 + 3 * 8 + 8 * 6 * 9 - 3 + 6 * 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-044",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 + 2 + 8 * 6 + 8 - 5 * 7 - 7 * 2 + 4 * 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-045",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 - 2 - 8 - 9 * 6 - 7 + 5 - 3 + 6 * 8 * 4 - 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-046",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 * 2 - 9 - 9 * 2 - 3 + 7 + 2 * 5 * 6 * 3 + 7 - 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-047",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 * 6 * 8 * 3 - 5 + 4 - 5 * 6 * 8 * 9 + 3 - 4 - 9 * 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-048",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 + 4 + 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-049",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 + 9 * 2 + 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-050",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 + 7 - 3 * 7 + 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-051",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 9 + 9 * 9 + 6 - 8 - 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-052",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 + 3 + 2 - 4 + 8 - 2 + 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-053",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 - 9 + 6 * 6 + 2 - 6 * 7 * 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-054",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 - 2 + 9 * 3 * 7 * 6 * 6 - 2 * 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-055",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 + 8 + 4 * 9 * 6 + 7 - 9 + 2 * 8 - 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-056",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 * 5 + 5 * 4 + 8 + 2 + 3 + 7 - 3 + 5 + 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-057",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 9 * 6 + 2 - 2 + 6 * 5 - 7 + 8 - 8 - 7 - 8 - 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-058",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 * 7 + 4 + 3 * 2 + 4 - 3 * 3 + 8 - 4 * 4 * 6 - 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-059",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 + 7 + 2 * 7 + 2 + 6 - 2 + 5 - 2 + 2 * 4 * 7 + 4 - 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-060",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 * 5 + 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-061",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 + 7 * 2 - 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-062",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 + 8 - 7 + 4 * 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-063",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 * 4 - 2 - 7 * 5 * 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-064",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 + 9 - 3 + 9 * 8 * 6 - 6. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-065",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 - 2 + 4 - 2 - 4 * 2 + 9 + 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-066",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 * 4 * 3 - 2 * 5 - 5 + 8 + 3 * 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-067",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 9 * 5 * 5 * 2 + 3 * 3 + 4 + 2 - 3 - 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-068",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 8 + 4 * 9 - 3 * 2 * 9 + 5 - 5 * 2 + 7 * 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-069",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 + 9 - 4 - 3 * 7 - 4 * 9 * 9 + 4 + 4 * 3 - 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-070",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 - 2 - 7 * 5 + 5 * 6 - 3 * 5 + 4 * 7 - 5 - 4 - 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-071",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 - 9 * 5 - 6 - 7 * 5 + 4 + 8 + 2 - 9 * 9 * 2 - 4 - 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-072",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 * 3 + 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-073",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 * 4 * 9 + 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-074",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 * 8 - 2 - 9 + 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-075",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 9 + 5 + 7 + 2 * 4 * 6. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-076",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 + 5 + 9 * 8 * 3 - 2 - 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-077",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 - 4 - 6 - 6 + 6 - 5 + 6 * 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-078",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 + 4 + 3 * 4 + 4 * 3 + 4 - 6 + 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-079",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 * 9 - 9 - 5 * 8 * 5 * 7 * 6 * 4 + 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-080",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 - 5 * 8 + 9 - 4 + 7 * 6 * 8 * 6 * 2 * 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-081",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 * 8 * 9 + 5 * 8 * 8 + 6 + 8 + 9 + 7 + 7 - 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-082",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 * 9 + 5 + 8 * 3 - 9 * 5 - 8 + 5 - 2 * 6 * 5 + 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-083",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 * 4 * 9 + 6 - 7 * 2 + 5 * 3 * 3 - 5 * 5 + 8 + 5 + 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-084",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 + 2 - 8. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-085",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 - 6 - 8 - 9. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-086",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 * 4 + 4 + 9 - 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-087",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 - 6 * 6 - 5 * 9 + 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-088",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 8 + 6 - 4 + 4 - 6 - 3 - 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-089",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 5 + 7 - 6 * 3 * 6 - 2 - 2 + 6. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-090",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 4 * 8 - 8 * 5 * 8 * 9 - 6 - 8 - 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-091",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 6 * 8 * 5 + 4 + 2 * 6 + 8 - 8 + 2 * 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-092",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 8 + 7 - 2 + 7 * 3 * 4 - 2 - 7 - 7 * 2 - 6. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-093",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 - 2 + 9 - 2 + 7 + 2 * 7 - 3 * 2 * 6 - 7 - 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-094",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 + 6 - 2 - 3 * 2 * 9 * 6 - 3 * 8 + 6 * 8 + 4 - 7. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-095",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 3 + 6 - 3 + 8 - 7 - 3 * 5 + 2 - 8 + 2 * 8 * 5 + 2 + 6. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-096",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 - 6 + 4. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-097",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 7 + 3 - 4 * 3. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-098",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 2 * 6 * 2 + 4 * 2. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-099",
+   "kind": "structured",
+   "prompt": "Compute strictly left to right, ignoring standard operator precedence: 9 * 3 * 8 - 8 - 7 - 5. Answer with the number only."
+  },
+  {
+   "cal_id": "CAL-100",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of battery storage."
+  },
+  {
+   "cal_id": "CAL-101",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of battery storage."
+  },
+  {
+   "cal_id": "CAL-102",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of water systems."
+  },
+  {
+   "cal_id": "CAL-103",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-104",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-105",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-106",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of battery storage."
+  },
+  {
+   "cal_id": "CAL-107",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of graph theory."
+  },
+  {
+   "cal_id": "CAL-108",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of water systems."
+  },
+  {
+   "cal_id": "CAL-109",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of typography."
+  },
+  {
+   "cal_id": "CAL-110",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-111",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of battery storage."
+  },
+  {
+   "cal_id": "CAL-112",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of water systems."
+  },
+  {
+   "cal_id": "CAL-113",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of maritime law."
+  },
+  {
+   "cal_id": "CAL-114",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-115",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of graph theory."
+  },
+  {
+   "cal_id": "CAL-116",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-117",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-118",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-119",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-120",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of orbital mechanics."
+  },
+  {
+   "cal_id": "CAL-121",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of graph theory."
+  },
+  {
+   "cal_id": "CAL-122",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-123",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of orbital mechanics."
+  },
+  {
+   "cal_id": "CAL-124",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of water systems."
+  },
+  {
+   "cal_id": "CAL-125",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of graph theory."
+  },
+  {
+   "cal_id": "CAL-126",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-127",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of orbital mechanics."
+  },
+  {
+   "cal_id": "CAL-128",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of graph theory."
+  },
+  {
+   "cal_id": "CAL-129",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-130",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of maritime law."
+  },
+  {
+   "cal_id": "CAL-131",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-132",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-133",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of typography."
+  },
+  {
+   "cal_id": "CAL-134",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of water systems."
+  },
+  {
+   "cal_id": "CAL-135",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-136",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-137",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of battery storage."
+  },
+  {
+   "cal_id": "CAL-138",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-139",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-140",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-141",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of water systems."
+  },
+  {
+   "cal_id": "CAL-142",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of orbital mechanics."
+  },
+  {
+   "cal_id": "CAL-143",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-144",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-145",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-146",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-147",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-148",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of graph theory."
+  },
+  {
+   "cal_id": "CAL-149",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-150",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of graph theory."
+  },
+  {
+   "cal_id": "CAL-151",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of typography."
+  },
+  {
+   "cal_id": "CAL-152",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of typography."
+  },
+  {
+   "cal_id": "CAL-153",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of maritime law."
+  },
+  {
+   "cal_id": "CAL-154",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of battery storage."
+  },
+  {
+   "cal_id": "CAL-155",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-156",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of maritime law."
+  },
+  {
+   "cal_id": "CAL-157",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of maritime law."
+  },
+  {
+   "cal_id": "CAL-158",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-159",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-160",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of graph theory."
+  },
+  {
+   "cal_id": "CAL-161",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of orbital mechanics."
+  },
+  {
+   "cal_id": "CAL-162",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of water systems."
+  },
+  {
+   "cal_id": "CAL-163",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-164",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-165",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of battery storage."
+  },
+  {
+   "cal_id": "CAL-166",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of maritime law."
+  },
+  {
+   "cal_id": "CAL-167",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-168",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of supply chains."
+  },
+  {
+   "cal_id": "CAL-169",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of battery storage."
+  },
+  {
+   "cal_id": "CAL-170",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-171",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-172",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of typography."
+  },
+  {
+   "cal_id": "CAL-173",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of typography."
+  },
+  {
+   "cal_id": "CAL-174",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-175",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of maritime law."
+  },
+  {
+   "cal_id": "CAL-176",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-177",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of orbital mechanics."
+  },
+  {
+   "cal_id": "CAL-178",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-179",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-180",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of orbital mechanics."
+  },
+  {
+   "cal_id": "CAL-181",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-182",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-183",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-184",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of maritime law."
+  },
+  {
+   "cal_id": "CAL-185",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of maritime law."
+  },
+  {
+   "cal_id": "CAL-186",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of typography."
+  },
+  {
+   "cal_id": "CAL-187",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of maritime law."
+  },
+  {
+   "cal_id": "CAL-188",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of graph theory."
+  },
+  {
+   "cal_id": "CAL-189",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-190",
+   "kind": "open",
+   "prompt": "In about 60 words, explain one practical aspect of water systems."
+  },
+  {
+   "cal_id": "CAL-191",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of typography."
+  },
+  {
+   "cal_id": "CAL-192",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of water systems."
+  },
+  {
+   "cal_id": "CAL-193",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of bird migration."
+  },
+  {
+   "cal_id": "CAL-194",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of graph theory."
+  },
+  {
+   "cal_id": "CAL-195",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of typography."
+  },
+  {
+   "cal_id": "CAL-196",
+   "kind": "open",
+   "prompt": "In about 200 words, explain one practical aspect of orbital mechanics."
+  },
+  {
+   "cal_id": "CAL-197",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of bread baking."
+  },
+  {
+   "cal_id": "CAL-198",
+   "kind": "open",
+   "prompt": "In about 30 words, explain one practical aspect of soil chemistry."
+  },
+  {
+   "cal_id": "CAL-199",
+   "kind": "open",
+   "prompt": "In about 120 words, explain one practical aspect of orbital mechanics."
+  }
+ ],
+ "window": 64
+}

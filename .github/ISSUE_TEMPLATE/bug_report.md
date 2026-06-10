@@ -8,7 +8,7 @@ labels: bug
 ## Where is the bug
 
 - [ ] Loop A / Loop B implementation (`loop_a/`)
-- [ ] Committed benchmark bundle (`proteus-bench-v1.0.1/`) — *see note below*
+- [ ] Committed benchmark bundle (`proteus-bench-v1.0.2/`) — *see note below*
 - [ ] Auditor / chain integrity
 - [ ] Documentation
 - [ ] Build / install / dependencies

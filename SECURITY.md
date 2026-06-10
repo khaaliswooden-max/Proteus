@@ -14,7 +14,7 @@ This repository's security surface, ranked by severity if exploited:
 2. **Hash collision exploitation.** Any practical attack on the SHA-256 manifest hash construction (`sha256` over sorted `rel_path:sha256` lines) that allows substituting bundle contents while preserving the committed hash. Critical.
 3. **Auditor false negatives.** Any chain mutation (`state_chain` rows) that `verify_chain.py` reports as clean (exit 0). High.
 4. **Canary leakage.** Any path by which T-CAN task IDs or prompts reach the consolidation trace mining stage while `--check-canary-isolation` reports clean. High.
-5. **Benchmark cheat passing the protocol.** Any approach to passing assertions B1–B6 that does not constitute genuine online state adaptation as defined in `proteus-bench-v1.0.1/BENCHMARK_v1.0.1.md`. Counted as a security issue against the *measurement*, not the code. High.
+5. **Benchmark cheat passing the protocol.** Any approach to passing assertions B1–B6 that does not constitute genuine online state adaptation as defined in `proteus-bench-v1.0.2/BENCHMARK_v1.0.2.md`. Counted as a security issue against the *measurement*, not the code. High.
 6. **Loop A control-flow exploits.** Any prompt or input that causes the controller to commit unsigned or improperly-signed state. Medium.
 
 Issues outside this list (e.g., Python dependency CVEs without exploit path against the listed surfaces) should be reported but are treated as standard maintenance.

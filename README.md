@@ -15,7 +15,7 @@ Concretely: a frozen-weight LLM (Mistral-7B-Instruct-v0.3 in the reference profi
 
 | Path | Purpose |
 |---|---|
-| `proteus-bench-v1.0.1/` | Frozen, OTS-stamped benchmark bundle (PROTEUS-002). Specification, task generators, canary set, independent auditor, hostile-review delta. Manifest hash `03e27b62…`. |
+| `proteus-bench-v1.0.2/` | Frozen benchmark bundle (PROTEUS-003; OTS stamp pending operator action). Specification, task generators, canary set, independent auditor, hostile-review delta, delta records. Manifest hash `3d14ac4b…`. |
 | `loop_a/` | Reference implementation of Loop A (per-turn micro-calibration) and Loop B (signed episodic state). Validated end-to-end against real model logits. |
 | `docs/` | Architecture (`ARCHITECTURE.md`), methodology (`METHODOLOGY.md`), sixth-Road argument (`SIXTH_ROAD.md`), epistemic framework (`EPISTEMIC_FRAMEWORK.md`). |
 | `keys/` | Public verification key (`visionblox-release-key-v1.pub`) and fingerprint. |
@@ -55,18 +55,21 @@ Evidence the discipline works: the *first* hostile review of v1.0 found two crit
 python3 - <<'PY'
 import hashlib
 from pathlib import Path
-root = Path("proteus-bench-v1.0.1")
+root = Path("proteus-bench-v1.0.2")
 skip = {"MANIFEST.json","BUNDLE_HASH.txt","BUNDLE_HASH.txt.ots","LEDGER_CANDIDATE.md"}
 files = [p for p in sorted(root.rglob("*"))
          if p.is_file() and p.name not in skip and "__pycache__" not in str(p)]
 lines = "\n".join(f"{p.relative_to(root)}:{hashlib.sha256(p.read_bytes()).hexdigest()}" for p in files)
 print(hashlib.sha256(lines.encode()).hexdigest())
-# expect: 03e27b6284405adb3dcdae5587be7f58cdb28677a2556105f710284cb4355bb6
+# expect: 3d14ac4b77deede20daae1b319bb5c370b71db83c58c693587651d9cf4856e58
 PY
 
-# Verify the OTS stamp (after ~24h post-commit, upgrade & verify):
-ots upgrade proteus-bench-v1.0.1/BUNDLE_HASH.txt.ots
-ots verify  proteus-bench-v1.0.1/BUNDLE_HASH.txt.ots
+# Verify the calibration artifact reproduces from its committed generator (F-B2 regression):
+cd proteus-bench-v1.0.2/calibration && python3 fit_band.py --emit-prompts | diff - calibration_prompts.json && cd ../..
+
+# Verify the OTS stamp of the superseded v1.0.1 bundle (v1.0.2's stamp pending operator action):
+ots upgrade archive/proteus-bench-v1.0.1/BUNDLE_HASH.txt.ots
+ots verify  archive/proteus-bench-v1.0.1/BUNDLE_HASH.txt.ots
 
 # Verify the Ed25519 signature on the ledger entry:
 python3 zil_sign.py verify --entry LEDGER_0004.json   # expects: VALID
@@ -76,13 +79,14 @@ python3 zil_sign.py verify --entry LEDGER_0004.json   # expects: VALID
 
 ```bash
 pip install cryptography llama-cpp-python
-# Place a GGUF model at the configured path (dev: any small instruct model;
+# Place a GGUF model at models/qwen2.5-0.5b-instruct-q4_k_m.gguf or point
+# PROTEUS_DEV_MODEL at one (dev: any small instruct model;
 # benchmark: Mistral-7B-Instruct-v0.3 Q4_K_M per protocol).
 python3 loop_a/run_synthetic.py    # closed-loop simulator, ~seconds
 python3 loop_a/run_live.py         # real-model integration, minutes
 ```
 
-The committed auditor (`proteus-bench-v1.0.1/auditor/verify_chain.py`) validates the chain produced by either run. **Measured benchmark assertions (B1–B6)** require the protocol model, pinned llama.cpp build, and the full 5-seed × 10-episode harness — this repo does not gate that behind tooling, the integrity comes from the signed bundle, not from us running it.
+The committed auditor (`proteus-bench-v1.0.2/auditor/verify_chain.py`) validates the chain produced by either run. **Measured benchmark assertions (B1–B6)** require the protocol model, pinned llama.cpp build, and the full 5-seed × 10-episode harness — this repo does not gate that behind tooling, the integrity comes from the signed bundle, not from us running it.
 
 ## Status and roadmap
 
