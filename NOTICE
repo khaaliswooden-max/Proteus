@@ -1,0 +1,15 @@
+Proteus — Plasticity Substrate for Frozen-Weight LLMs
+Copyright 2026 Visionblox LLC / Zuup Innovation Lab
+
+This product includes software developed by Visionblox LLC
+(https://visionblox.com) at Zuup Innovation Lab.
+
+Primary author: A. Khaalis Wooden, Sr.
+
+Defensive disclosure: This project, including the Proteus three-loop
+architecture (Loop A flow-band controller over entropy/ACI signals;
+Loop B Ed25519-signed hash-chained episodic state; Loop C approval-gated
+consolidation), is published under Apache License 2.0. The Apache 2.0
+patent grant applies. The benchmark bundle (proteus-bench v1.0.1,
+manifest hash 03e27b6284405adb3dcdae5587be7f58cdb28677a2556105f710284cb4355bb6)
+is anchored via OpenTimestamps and forms part of the public disclosure.

@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+message: "If you use Proteus or refer to the plasticity-substrate architecture in academic work, please cite this repository."
+title: "Proteus — Plasticity Substrate for Frozen-Weight LLMs"
+abstract: >-
+  A three-loop architecture giving frozen-weight LLMs online state adaptation
+  under deterministic governance. Loop A applies a banded controller over
+  pre-sampling entropy (challenge) and Adaptive Conformal Inference band width
+  (skill) to steer retrieval depth, control-vector gain, and scaffold density
+  toward the Csikszentmihalyi flow condition. Loop B records every state
+  transition to an Ed25519-signed, SHA-256-linked SQLite chain. Loop C performs
+  approval-gated consolidation via canary-tested control vectors and LoRA
+  adapters. Proposed as Road VI (Plasticity Substrate) in the Five Preverbal
+  Roads framework. Released with cryptographically committed,
+  hostile-reviewed benchmark (proteus-bench v1.0.1, PROTEUS-002).
+type: software
+authors:
+  - family-names: Wooden
+    given-names: A. Khaalis
+    name-suffix: Sr.
+    email: khaalis.wooden@visionblox.com
+    affiliation: "Visionblox LLC / Zuup Innovation Lab"
+license: Apache-2.0
+repository-code: "https://github.com/khaaliswooden-max/zandbox"
+url: "https://github.com/khaaliswooden-max/zandbox"
+keywords:
+  - LLM
+  - online adaptation
+  - test-time adaptation
+  - plasticity
+  - flow state
+  - conformal prediction
+  - provenance
+  - Ed25519
+  - control vectors
+  - LoRA
+  - recursive cognitive architecture
+  - cognitive substrate
+references:
+  - type: report
+    title: "PROTEUS-Bench v1.0.1 — Online State Adaptation Benchmark Specification"
+    authors:
+      - family-names: Wooden
+        given-names: A. Khaalis
+        name-suffix: Sr.
+    institution:
+      name: "Visionblox LLC / Zuup Innovation Lab"
+    year: 2026
+    identifiers:
+      - type: other
+        value: "sha256:03e27b6284405adb3dcdae5587be7f58cdb28677a2556105f710284cb4355bb6"
+        description: "Bundle manifest hash, OpenTimestamps-anchored"
