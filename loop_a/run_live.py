@@ -122,7 +122,9 @@ def main():
     # sample 16 turns spanning all difficulty levels
     idxs = [int(i * (len(ep) - 1) / (N_TURNS - 1)) for i in range(N_TURNS)]
     solved, log = [], []
-    state = {"mode": "live-dev", "model": "qwen2.5-0.5b-q4km", "actuators": {"k": 0, "g": 0, "s": 0}}
+    # provenance: record the model actually loaded, not a fixed label
+    state = {"mode": "live-dev", "model": pathlib.Path(MODEL).stem,
+             "actuators": {"k": 0, "g": 0, "s": 0}}
 
     for i in idxs:
         task = ep[i]
